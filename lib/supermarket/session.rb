@@ -29,7 +29,7 @@ module Supermarket
     def order_type(type_sym);@@order_type[type_sym];end
 
     def initialize(opts={})
-      opts.merge!(self.class.config)
+      opts.merge!(self.class.config) unless opts['login'] and opts['password']
       @_session = MarketSession.new
       @_session.getContext().setAndroidId("3deca97a395ffaa6");
       if opts['authToken']
