@@ -4,7 +4,9 @@ require 'java'
 require 'yaml'
 require 'json'
 
-require File.dirname(__FILE__) + "/jars/AndroidMarketApi.jar"
+
+#require File.dirname(__FILE__) + "/jars/AndroidMarketApi.jar"
+require File.dirname(__FILE__) + "/jars/androidmarketapi-0.6.jar"
 require File.dirname(__FILE__) + "/jars/protobuf-java-2.2.0.jar"
 require File.dirname(__FILE__) + "/formats"
 
@@ -29,7 +31,7 @@ module Supermarket
     def initialize(opts={})
       opts.merge!(self.class.config)
       @_session = MarketSession.new
-      @_session.getContext().setAndroidId("3000000000000000");
+      @_session.getContext().setAndroidId("3deca97a395ffaa6");
       if opts['authToken']
         @_session.setAuthSubToken(opts['authToken'])
       else
@@ -55,13 +57,14 @@ module Supermarket
     end
 
     def get_app(app_id)
+      
       request_builder = Market::AppsRequest.newBuilder()
       request_builder.set_app_id(app_id).set_with_extended_info(true) 
       execute(request_builder.build())
     end
 
 
-    def search(query=nil, categid=nil,extended=true, start=0, count=10, order=:popular)
+    def search(query=nil, categid=nil,extended=true, start=0, count=75, order=:popular)
       request_builder = Market::AppsRequest.newBuilder()
 
       if query.nil? and !categid.nil?
