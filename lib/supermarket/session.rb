@@ -129,6 +129,12 @@ module Supermarket
         usage_const = Market::GetImageRequest::AppImageUsage::SCREENSHOT
       when :icon
         usage_const = Market::GetImageRequest::AppImageUsage::ICON
+      when :screenshot_thumbnail
+        usage_const = Market::GetImageRequest::AppImageUsage::SCREENSHOT_THUMBNAIL
+      when :promo_badge
+        usage_const = Market::GetImageRequest::AppImageUsage::PROMO_BADGE
+      when :biling_icon
+        usage_const = Market::GetImageRequest::AppImageUsage::BILING_ICON
       end
       
       request = Market::GetImageRequest.newBuilder().
