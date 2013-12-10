@@ -1,4 +1,5 @@
-require File.dirname(__FILE__) + "/jars/protobuf-format-java-1.2-SNAPSHOT.jar"
+#require File.dirname(__FILE__) + "/jars/protobuf-format-java-1.2-SNAPSHOT.jar"
+require File.dirname(__FILE__) + "/jars/protobuf-java-format-1.2.jar"
 
 
 #Serialize protobuf to different formats using
@@ -7,15 +8,15 @@ module Supermarket
   module Formats
 
     def to_json(*a)
-      Java::ComGoogleProtobuf::JsonFormat.printToString(self)
+      Java::ComGooglecodeProtobufFormat::JsonFormat.printToString(self)
     end
 
     def to_xml
-      Java::ComGoogleProtobuf::XmlFormat.printToString(self)
+      Java::ComGooglecodeProtobufFormat::XmlFormat.printToString(self)
     end
 
     def to_html
-      Java::ComGoogleProtobuf::HtmlFormat.printToString(self)
+      Java::ComGooglecodeProtobufFormat::HtmlFormat.printToString(self)
     end
 
     def to_ruby
