@@ -130,9 +130,9 @@ module Supermarket
       when :icon
         usage_const = Market::GetImageRequest::AppImageUsage::ICON
       end
-
+      
       request = Market::GetImageRequest.newBuilder().
-        setAppId(pkg_to_app_id(app_id)).
+        setAppId(app_id).
         setImageUsage(usage_const).
         setImageId(image_id).build()
 
